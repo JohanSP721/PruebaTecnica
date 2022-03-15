@@ -1,0 +1,10 @@
+<article class="todo-item">
+	<span class="icon icon-check" [ngClass]="{'icon-check--active':toDo.complete}" (click)="onComplete()">√</span>
+	<span class="icon icon-charge" [ngClass]="{'icon-charge--active':toDo.doing}" (click)="onDoing()">...</span>
+	<div class="text-container">
+		<p class="todo-item__p" [ngClass]="{'todo-Item-p--complete':toDo.complete}">{{toDo.title}}</p>
+		<p class="todo-item__p" [ngClass]="{'todo-Item-p--complete':toDo.complete}">{{toDo.description}}</p>
+	</div>
+	<button class="edit-button" (click)="editToDo()" type="button"></button>
+	<span class="icon icon-delete" (click)="onDelete()">X</span>
+</article>
