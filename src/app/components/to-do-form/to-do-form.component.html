@@ -1,12 +1,12 @@
 <section class="modal" *ngIf="display$ | async as display" [class.open]="display === true">
 	<form #TodoForm="ngForm" >
 		<label>Escribe el titulo de tu todo</label>
-		<input type="text" name="title" [(ngModel)]="toDo.title">
+		<input required="" type="text" name="title" [(ngModel)]="toDo.title">
 		<label>Escribe la descripción de tu todo</label>
-		<textarea name="description" [(ngModel)]="toDo.description"></textarea>
+		<textarea required="" name="description" [(ngModel)]="toDo.description"></textarea>
 		<article class="TodoForm-buttonContainer">
 			<button (click)="toggle()" type="button" class="TodoForm-button TodoForm-button-cancel">Cancelar</button>
-			<button (click)="saveToDo()" class="TodoForm-button TodoForm-button-add" type= "submit">{{stateForm === 'edit' ? 'Editar' : 'Crear'}}</button>
+			<button [disabled]="TodoForm.invalid" (click)="saveToDo()" class="TodoForm-button TodoForm-button-add" type= "submit">{{stateForm === 'edit' ? 'Editar' : 'Crear'}}</button>
 		</article>
 	</form>
 </section>
